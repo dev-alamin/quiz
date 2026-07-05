@@ -156,6 +156,7 @@ button {
   border-radius: 8px;
   font-size: 0.9rem;
   line-height: 1.5;
+  margin-bottom: 15px;
 }
 .review-item.correct {
   background: #f0fdf4;
