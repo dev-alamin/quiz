@@ -73,16 +73,59 @@ function renderQuestion(){
 
     $( 'progress-text' ).textContent = `Question ${qNumber} of total ${totalQ}`;
     $( 'progress-bar' ).style.width = `${progress}%`;
-
-    console.log(progress);
-
     $( 'question-text' ).textContent = q.question;
 
-    btnNext.textContent = currentIndex == totalQ ? 'See Result' : 'Next';
+    $( 'options-list' ).innerHTML = '';
+    selectedAnswer = null;
+    // btnNext.disabled = true;
+
+    q.options.forEach( ( item, index ) => {
+        const li = document.createElement( 'li' );
+        const btn = document.createElement( 'button' );
+
+        btn.textContent = item;
+        li.appendChild(btn);
+        $( 'options-list' ).appendChild( li );
+
+        btn.dataset.index = index;
+        btn.addEventListener( 'click', () => handleOptionClick( index ) );
+    });
+
+    btnNext.textContent = currentIndex == totalQ - 1 ? 'See Result' : 'Next';
+}
+
+function handleOptionClick( chosenIndex ) {
+    if( selectedAnswer != null ) return;
+
+    const correct = questions[currentIndex].answer;
+    selectedAnswer = chosenIndex;
+
+    $( 'options-list' ).querySelectorAll( 'button' ).forEach( ( btn, index ) => {
+
+        if( index === correct ) {
+            btn.classList.add( 'correct' );
+        }
+
+        if( index === chosenIndex && chosenIndex != correct ) {
+            btn.classList.add( 'wrong' );
+        }
+
+    });
+
+    result.push({
+        question   : questions[currentIndex].question,
+        answer     : questions[currentIndex].answer,
+        correct    : chosenIndex == correct,
+        chosenIndex: chosenIndex,
+        answerIndex: correct,
+    });
+
+    console.log(result);
 }
 
 function handleNext(){
     currentIndex++;
+    if( selectedAnswer == null ) return;
 
     if( currentIndex < questions.length ) {
         renderQuestion();
@@ -97,7 +140,7 @@ btnNext.addEventListener( 'click', handleNext );
 
 (async function() {
     await loadQuestions();
-
+    $( 'subheading' ).textContent = `Total ${questions.length} Quizes`;
     btnStart.addEventListener( 'click', function(){
         showScreen( 'question' );
         renderQuestion();

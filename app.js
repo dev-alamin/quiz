@@ -112,6 +112,7 @@ function handleOptionClick( chosenIndex ) {
         if( index === correct ) {
             btn.classList.add( 'correct' );
         }
+        
         if(index === chosenIndex && chosenIndex !== correct ) {
             btn.classList.add( 'wrong' );
         }
