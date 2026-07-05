@@ -1,26 +1,26 @@
- let currentIndex = null;
- let result = [];
- let questions = [];
- let selectedAnswer = null;
+let currentIndex = null;
+let result = [];
+let questions = [];
+let selectedAnswer = null;
 
 //  Utility function for DOM selection 
-function $(e){return document.getElementById(e);}
+function $(e) { return document.getElementById(e); }
 
 // ----------------------------------
 // DOM selection 
 // ----------------------------------
-const startScreen    = $( 'screen-start' );
-const questionScreen = $( 'screen-question' );
-const resultScreen   = $( 'screen-result' );
-const errorScreen    = $( 'screen-error' );
+const startScreen = $('screen-start');
+const questionScreen = $('screen-question');
+const resultScreen = $('screen-result');
+const errorScreen = $('screen-error');
 
-const btnStart = $( 'btn-start' );
+const btnStart = $('btn-start');
 
 const screen = {
-    'start'   : startScreen,
+    'start': startScreen,
     'question': questionScreen,
-    'result'  : resultScreen,
-    'error'   : errorScreen
+    'result': resultScreen,
+    'error': errorScreen
 };
 
 /**
@@ -28,15 +28,33 @@ const screen = {
  * @param {*} s 
  * @returns void
  */
-function showScreen(s){
+function showScreen(s) {
 
-    if( ! screen[s] ) {
-        console.warn( `No screen found named '${s}'` );
+    if (!screen[s]) {
+        console.warn(`No screen found named '${s}'`);
         return;
     }
 
-    Object.values(screen).forEach(e => e.classList.remove( 'active' ) );
-    screen[s].classList.add( 'active' );
+    Object.values(screen).forEach(e => e.classList.remove('active'));
+    screen[s].classList.add('active');
 }
 
-showScreen( 'hello' );
+async function loadQuestions() {
+    try {
+        const res = await fetch('data.json');
+        if (!res.ok) {
+            throw new Error(`HTTP Error: Status - ${res.status}`);
+            return;
+        }
+
+        data = await res.json();
+        questions = data;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+(async function() {
+    await loadQuestions();
+    console.log(questions);
+})();
