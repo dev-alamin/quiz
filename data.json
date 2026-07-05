@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "question": "Which array method removes the last element?",
+    "options": ["shift()", "pop()", "push()", "slice()"],
+    "answer": 1
+  },
+  {
+    "id": 2,
+    "question": "What will '2' + 2 return in JavaScript?",
+    "options": ["4", "'22'", "NaN", "undefined"],
+    "answer": 1
+  },
+  {
+    "id": 3,
+    "question": "Which keyword is used to define a constant variable?",
+    "options": ["let", "static", "const", "final"],
+    "answer": 2
+  },
+  {
+    "id": 4,
+    "question": "Which method converts JSON text into a JavaScript object?",
+    "options": [
+      "JSON.stringify()",
+      "JSON.parse()",
+      "JSON.object()",
+      "JSON.decode()"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 5,
+    "question": "What does Array.isArray([]) return?",
+    "options": ["false", "null", "true", "undefined"],
+    "answer": 2
+  },
+  {
+    "id": 6,
+    "question": "Which operator checks both value and type equality?",
+    "options": ["==", "=", "===", "!="],
+    "answer": 2
+  },
+  {
+    "id": 7,
+    "question": "Which loop is guaranteed to run at least once?",
+    "options": ["for", "while", "forEach", "do...while"],
+    "answer": 3
+  },
+  {
+    "id": 8,
+    "question": "What does document.querySelector() return?",
+    "options": [
+      "An array of elements",
+      "The first matching element",
+      "A Promise",
+      "Only IDs"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 9,
+    "question": "Which value is considered falsy in JavaScript?",
+    "options": ["[]", "'0'", "{}", "0"],
+    "answer": 3
+  },
+  {
+    "id": 10,
+    "question": "Which method creates a new array without modifying the original?",
+    "options": ["splice()", "slice()", "pop()", "shift()"],
+    "answer": 1
+  },
+  {
+    "id": 11,
+    "question": "What is the result of Boolean('hello')?",
+    "options": ["false", "null", "true", "undefined"],
+    "answer": 2
+  },
+  {
+    "id": 12,
+    "question": "Which keyword is used to handle errors?",
+    "options": ["catch", "error", "throw", "debug"],
+    "answer": 0
+  },
+  {
+    "id": 13,
+    "question": "Which method is used to add an event listener?",
+    "options": [
+      "attachEvent()",
+      "listen()",
+      "addEventListener()",
+      "onEvent()"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 14,
+    "question": "What does setTimeout() do?",
+    "options": [
+      "Repeats code forever",
+      "Runs code after a delay",
+      "Stops JavaScript execution",
+      "Creates a Promise automatically"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 15,
+    "question": "Which method joins array elements into a string?",
+    "options": ["concat()", "combine()", "join()", "merge()"],
+    "answer": 2
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "question": "Which method adds an element to the end of an array?",
+    "options": ["push()", "pop()", "shift()", "splice()"],
+    "answer": 0
+  },
+  {
+    "id": 2,
+    "question": "What does 'typeof null' return in JavaScript?",
+    "options": ["'null'", "'undefined'", "'object'", "'boolean'"],
+    "answer": 2
+  },
+  {
+    "id": 3,
+    "question": "Which keyword declares a block-scoped variable?",
+    "options": ["var", "let", "define", "local"],
+    "answer": 1
+  },
+  {
+    "id": 4,
+    "question": "What does the fetch() function return?",
+    "options": ["A plain object", "An XMLHttpRequest", "A Promise", "A callback"],
+    "answer": 2
+  },
+  {
+    "id": 5,
+    "question": "How do you select an element by its ID in raw JS?",
+    "options": [
+      "document.query('#id')",
+      "document.getElementById('id')",
+      "document.findElement('id')",
+      "document.select('#id')"
+    ],
+    "answer": 1
+  }
+]

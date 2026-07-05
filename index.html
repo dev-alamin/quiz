@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+
+        <!-- Start Screen -->
+        <div id="screen-start" class="screen active">
+            <h1>Start the quiz</h1>
+            <p id="subheading">X total quiz</p>
+
+            <button id="btn-start">Start</button>
+        </div>
+
+        <!-- Question Screen  -->
+        <div id="screen-question" class="screen">
+            <div id="quiz-progress">
+                <span id="progress-text">1 of 15 questions</span>
+                <div id="progress-bar-wrap">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div id="question-card">
+                <p id="question-text"></p>
+                <ul id="option-list">
+                    
+                </ul>
+            </div>
+
+            <button id="btn-next">Next</button>
+        </div>
+
+        <!-- Result Screen  -->
+        <div id="screen-result" class="screen">
+            <h4>Quiz Compleet</h4>
+            <p id="score-text"></p>
+            <div id="answer-review">
+
+            </div>
+            <button id="btn-restart">Play Again</button>
+        </div>
+
+        <!-- Error Screen  -->
+        <div id="screen-error" class="screen">
+            <p>You have got a wrong</p>
+        </div>
+
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

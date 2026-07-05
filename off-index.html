@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Start Screen -->
+    <div id="screen-start" class="screen active">
+      <h1>JS Quiz</h1>
+      <p id="start-screen-subheading">x questions on JavaScript basics.</p>
+      <button id="btn-start">Start Quiz</button>
+    </div>
+
+    <!-- Question Screen -->
+    <div id="screen-question" class="screen">
+      <div id="progress">
+        <span id="progress-text">Question 1 of 5</span>
+        <div id="progress-bar-wrap">
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+
+      <div id="question-card">
+        <p id="question-text"></p>
+        <ul id="options-list">
+          <!-- Options injected by JS -->
+        </ul>
+        <button id="btn-next" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="screen-result" class="screen">
+      <h2>Quiz Complete!</h2>
+      <p id="score-text"></p>
+      <div id="answers-review">
+        <!-- Answer review injected by JS -->
+      </div>
+      <button id="btn-restart">Play Again</button>
+    </div>
+
+    <!-- Error Screen -->
+    <div id="screen-error" class="screen">
+      <p id="error-message"></p>
+    </div>
+
+  </div>
+
+  <!-- <script src="app.js"></script> -->
+  <script src="script.js"></script>
+</body>
+</html>
