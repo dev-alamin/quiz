@@ -175,7 +175,15 @@ function showResults(){
     showScreen( 'result' );
 }
 
+function handleReset(){
+    currentIndex = 0;
+    showScreen( 'start' );
+    result = [];
+    selectedAnswer = null;
+}
+
 btnNext.addEventListener( 'click', handleNext );
+$( 'btn-restart' ).addEventListener( 'click', handleReset );
 
 (async function() {
     await loadQuestions();
