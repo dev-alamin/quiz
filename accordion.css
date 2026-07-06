@@ -1,0 +1,147 @@
+/* -----------------------------------------
+   Reset / base
+----------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0f1115;
+    color: #e8e8ec;
+}
+
+#app {
+    width: 100%;
+    max-width: 640px;
+}
+
+/* -----------------------------------------
+   Accordion shell
+----------------------------------------- */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.accordion-item {
+    background: #181b21;
+    border: 1px solid #2a2e37;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.accordion-item:has(.accordion-header[aria-expanded="true"]) {
+    border-color: #4a4dff;
+}
+
+/* -----------------------------------------
+   Header
+----------------------------------------- */
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.35rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #f4f4f6;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s ease;
+}
+
+.accordion-header:hover {
+    background: #1e222a;
+}
+
+.accordion-header:focus-visible {
+    outline: 2px solid #4a4dff;
+    outline-offset: -2px;
+}
+
+/* Chevron indicator — draw with CSS, no icon font/svg needed */
+.accordion-header::after {
+    content: '';
+    flex-shrink: 0;
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid #8a8f9c;
+    border-bottom: 2px solid #8a8f9c;
+    transform: rotate(45deg);
+    transition: transform 0.25s ease, border-color 0.2s ease;
+}
+
+.accordion-header[aria-expanded="true"]::after {
+    transform: rotate(-135deg);
+    border-color: #7b7dff;
+}
+
+.accordion-header[aria-expanded="true"] {
+    color: #ffffff;
+}
+
+/* -----------------------------------------
+   Content — grid-rows trick for smooth
+   height: auto animation (no JS height math)
+----------------------------------------- */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.accordion-content > p {
+    margin: 0;
+    overflow: hidden;
+    min-height: 0;
+    padding: 0 1.35rem;
+    color: #b4b8c2;
+    font-size: 0.925rem;
+    line-height: 1.6;
+}
+
+.accordion-header[aria-expanded="true"] + .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+.accordion-header[aria-expanded="true"] + .accordion-content > p {
+    padding-bottom: 1.15rem;
+}
+
+/* -----------------------------------------
+   Reduced motion
+----------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .accordion-content,
+    .accordion-header::after,
+    .accordion-item {
+        transition: none;
+    }
+}
+
+/* -----------------------------------------
+   Small screens
+----------------------------------------- */
+@media (max-width: 420px) {
+    .accordion-header {
+        padding: 0.95rem 1.1rem;
+        font-size: 0.95rem;
+    }
+
+    .accordion-content > p {
+        padding-inline: 1.1rem;
+    }
+}
