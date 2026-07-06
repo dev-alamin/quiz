@@ -1,0 +1,28 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "A vanilla JavaScript quiz application built from scratch as part of my JavaScript engineering learning journey.",
+  "main": "app.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-alamin/quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dev-alamin/quiz/issues"
+  },
+  "homepage": "https://github.com/dev-alamin/quiz#readme",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/user-event": "^14.6.1",
+    "jsdom": "^29.1.1",
+    "vitest": "^4.1.9"
+  }
+}
