@@ -1,6 +1,6 @@
 // quiz-logic.test.js
 import { describe, it, expect } from 'vitest';
-import { isCorrect, buildResult, calculateScore } from './quiz-logic.js';
+import { isCorrect, buildResult, calculateScore } from '../quiz-logic.js';
 
 describe('isCorrect', () => {
     it('returns true when chosen index matches answer', () => {

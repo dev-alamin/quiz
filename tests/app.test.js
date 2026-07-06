@@ -17,6 +17,6 @@ it('disables next button until an option is chosen', async () => {
         })
     );
 
-    await import('./app.js'); // triggers the IIFE that loads questions
+    await import('../app.js'); // triggers the IIFE that loads questions
     // ...simulate clicking start, then an option, then assert btn-next.disabled === false
 });
