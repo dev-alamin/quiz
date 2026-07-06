@@ -1,4 +1,6 @@
 "use strict";
+import { isCorrect, buildResult, calculateScore } from "./quiz-logic.js";
+
 // -----------------------------------------------
 // State
 // -----------------------------------------------
@@ -119,13 +121,7 @@ function handleOptionClick( chosenIndex ) {
     });
 
     // Record result
-    results.push({
-        question   : questions[currentIndex].question,
-        options    : questions[currentIndex].options,
-        correct    : chosenIndex === correct,
-        chosenIndex: chosenIndex,
-        answerIndex: correct,
-    });
+    results.push( buildResult( questions[currentIndex], chosenIndex ) );
 
     btnNext.disabled = false;
 }
@@ -151,7 +147,7 @@ function handleNext() {
 // ----------------------------------------
 function showResults() {
     const total = questions.length;
-    const correct = results.filter( r => r.correct ).length;
+    const correct = calculateScore(results);
 
     scoreText.textContent = `You got ${correct} out of ${total} correct`;
 
