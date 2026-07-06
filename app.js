@@ -18,7 +18,7 @@ const questionText  = $( 'question-text' );
 const optionsList   = $( 'options-list' );
 const btnNext       = $( 'btn-next' );
 const scoreText     = $( 'score-text' );
-const answersReview = $( 'answers-review' );
+const answersReview = $( 'answer-review' );
 
 const screens = {
     start   : $( 'screen-start' ),
@@ -46,7 +46,7 @@ function showScreen(name) {
 // ---------------------------------------
 async function loadQuestions() {
     try{
-        const res = await fetch( 'questions.json' );
+        const res = await fetch( 'data.json' );
 
         if( ! res.ok ) {
             throw new Error( `HTTP error - status: ${res.status}` );
