@@ -3,6 +3,8 @@
 A vanilla JavaScript quiz application built from scratch as part of my JavaScript engineering learning journey.
 
 The goal of this project is **not** to use frameworks or libraries, but to deeply understand how JavaScript works in the browser by building real applications using only the Web Platform APIs.
+<img width="1023" height="661" alt="image" src="https://github.com/user-attachments/assets/4aa6b18d-6500-4f4d-8af7-2c4580a8f1f2" />
+<img width="1023" height="661" alt="image" src="https://github.com/user-attachments/assets/8bf222c9-66a9-46d0-bc33-f6a8fb5320c8" />
 
 ---
 
