@@ -10,6 +10,7 @@ const btnNext    = document.querySelector( '.slider-btn--next' );
 const btnPrev    = document.querySelector( '.slider-btn--prev' );
 const dots       = document.querySelectorAll( '.slider-dot' );
 const slider     = document.querySelector( '.slider' );
+const announcer  = document.getElementById( 'slide-announcer' );
 
 // Pure function, easy to seperate, reuse, test, maintenance
 function goNext(){
@@ -55,7 +56,7 @@ function render(){
         dot.setAttribute( 'aria-selected', isActive );
     } );
 
-    document.getElementById( 'slide-announcer' ).textContent = `Slide ${currentIndex + 1} of ${totalSlide}`;
+    announcer.textContent = `Slide ${currentIndex + 1} of ${totalSlide}`;
 }
 
 // Keyboard Navigation

@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0f1115;
+    color: #e8e8ec;
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f4f4f6;
+    margin: 0 0 2rem;
+}
+
+.tabs {
+    width: 100%;
+    max-width: 640px;
+}
+
+.tab-list {
+    display: flex;
+    gap: 0.25rem;
+    border-bottom: 1px solid #2a2e37;
+}
+
+.tab {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0.75rem 1.1rem;
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: #8a8f9c;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tab:hover {
+    color: #e8e8ec;
+}
+
+.tab:focus-visible {
+    outline: 2px solid #7b7dff;
+    outline-offset: 2px;
+}
+
+.tab.active {
+    color: #f4f4f6;
+    border-color: #7b7dff;
+}
+
+.tab-panel {
+    padding: 1.5rem 0.25rem;
+}
+
+.tab-panel h2 {
+    margin-top: 0;
+    font-size: 1.05rem;
+    color: #f4f4f6;
+}
+
+.tab-panel p {
+    color: #b4b8c2;
+    line-height: 1.6;
+}
