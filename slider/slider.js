@@ -56,3 +56,19 @@ dots.forEach( ( dot, index ) => {
         render();
     });
 });
+
+// ----------------------------------------
+// Step 7: Keyboard — arrow keys, using 
+// what you already built
+// ----------------------------------------
+document.addEventListener( 'keydown', (e) => {
+    if( e.key === 'ArrowRight' ) {
+        goToNext();
+        render();
+    }
+
+    if( e.key === 'ArrowLeft' ) {
+        goToPrev();
+        render();
+    }
+});
