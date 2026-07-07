@@ -72,3 +72,6 @@ document.addEventListener( 'keydown', (e) => {
         render();
     }
 });
+
+// Render anyway
+render();
