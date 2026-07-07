@@ -9,6 +9,7 @@ const totalSlide = document.querySelectorAll( '.slide' ).length;
 const btnNext    = document.querySelector( '.slider-btn--next' );
 const btnPrev    = document.querySelector( '.slider-btn--prev' );
 const dots       = document.querySelectorAll( '.slider-dot' );
+const slider     = document.querySelector( '.slider' );
 
 // Pure function, easy to seperate, reuse, test, maintenance
 function goNext(){
@@ -55,8 +56,20 @@ function render(){
     } );
 }
 
+// Keyboard Navigation
+slider.addEventListener( 'keydown', (e) => {
+    if( e.key === 'ArrowRight' ){
+        goNext();
+        render();
+    }
 
-handleDots(dots);
-render();
+    if( e.key === 'ArrowLeft' ) {
+        goPrev();
+        render();
+    }
+
+});
 
 // Render initialy, anyway
+handleDots(dots);
+render();
