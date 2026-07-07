@@ -1,77 +1,35 @@
 "use strict";
 
+// Global state that will derive the app
 let currentIndex = 0;
-const totalSlides = document.querySelectorAll( '.slide' ).length;
 
-const track   = document.querySelector( '.slider-track' );
-const dots    = document.querySelectorAll( '.slider-dot' );
-const btnPrev = document.querySelector( '.slider-btn--prev' );
+// DOM reference not to repeat query
+const track = document.querySelector( '.slider-track' );
+const totalSlide = document.querySelectorAll( '.slide' ).length;
 const btnNext = document.querySelector( '.slider-btn--next' );
+const btnPrev = document.querySelector( '.slider-btn--prev' );
 
-// ------------------------------------
-// Step 3: The index math
-// ------------------------------------
-function goToNext() {
-    currentIndex = (currentIndex + 1 ) % totalSlides;
+// Go to next slide
+function nextSlide(){
+    currentIndex = (currentIndex + 1 ) % totalSlide;
+    render();
+    console.log(currentIndex, totalSlide);
 }
 
-function goToPrev() {
-    currentIndex = (currentIndex - 1 + totalSlides ) % totalSlides;
+// Go to previous slide
+function prevSlide(){
+    currentIndex = (currentIndex - 1 + totalSlide ) % totalSlide;
+    render();
 }
 
-// ------------------------------------
-// One function that "paints" the current 
-// state - the render function
-// ------------------------------------
+// Attach DOM
+btnNext.addEventListener( 'click', nextSlide );
+btnPrev.addEventListener( 'click', prevSlide );
+
 function render(){
     track.style.setProperty( '--current', currentIndex );
-
-    dots.forEach( (dot, i ) => {
-        const isActive = i === currentIndex;
-
-        dot.classList.toggle( 'active', isActive );
-        dot.setAttribute( 'aria-selected', isActive );
-    });
 }
 
-// ----------------------------------------
-// Step 5: Wire-up the buttons
-// ----------------------------------------
-btnNext.addEventListener( 'click', () => {
-    goToNext();
-    render();
-});
-
-btnPrev.addEventListener( 'click', () => {
-    goToPrev();
-    render();
-});
-
-// ---------------------------------------
-// Dots - clicking a specifc one
-// ---------------------------------------
-dots.forEach( ( dot, index ) => {
-    dot.addEventListener( 'click', () => {
-        currentIndex = index;
-        render();
-    });
-});
-
-// ----------------------------------------
-// Step 7: Keyboard — arrow keys, using 
-// what you already built
-// ----------------------------------------
-document.addEventListener( 'keydown', (e) => {
-    if( e.key === 'ArrowRight' ) {
-        goToNext();
-        render();
-    }
-
-    if( e.key === 'ArrowLeft' ) {
-        goToPrev();
-        render();
-    }
-});
-
-// Render anyway
 render();
+
+// Render initialy, anyway
