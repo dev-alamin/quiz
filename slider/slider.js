@@ -3,9 +3,9 @@
 let currentIndex = 0;
 const totalSlides = document.querySelectorAll( '.slide' ).length;
 
-const track   = document.querySelector( 'slider-track' );
+const track   = document.querySelector( '.slider-track' );
 const dots    = document.querySelectorAll( 'slider-dot' );
-const btnPrev = document.querySelector( 'slider-btn--prev' );
+const btnPrev = document.querySelector( '.slider-btn--prev' );
 const btnNext = document.querySelector( '.slider-btn--next' );
 
 // ------------------------------------
@@ -33,3 +33,16 @@ function render(){
         dot.setAttribute( 'aria-selected', isActive );
     });
 }
+
+// ----------------------------------------
+// Step 5: Wire-up the buttons
+// ----------------------------------------
+btnNext.addEventListener( 'click', () => {
+    goToNext();
+    render();
+});
+
+btnPrev.addEventListener( 'click', () => {
+    goToPrev();
+    render();
+});
