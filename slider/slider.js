@@ -54,6 +54,8 @@ function render(){
         dot.classList.toggle( 'active', isActive );
         dot.setAttribute( 'aria-selected', isActive );
     } );
+
+    document.getElementById( 'slide-announcer' ).textContent = `Slide ${currentIndex + 1} of ${totalSlide}`;
 }
 
 // Keyboard Navigation
