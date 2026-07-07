@@ -3,7 +3,7 @@
 // -----------------------
 // Global State
 // -----------------------
-let currentlyOpen;
+let currentlyOpen = null;
 
 // -----------------------
 // DOM Helper
@@ -15,32 +15,37 @@ function $$$(el){return document.querySelectorAll(el)}
 // ------------------------
 // DOM Selection 
 // ------------------------
-const root      = $( 'root' );
 const acRoot    = $$( '.accordion' );
-const acItem    = $$$( '.accordion-item' );
-const acHeader  = $$$( '.accordion-header' );
-const acContent = $$$( '.accordion-content' );
 
 function activeTab(){
+    // Better way through event delegation
+    acRoot.addEventListener( 'click', (e) => {
+        if(e.target.matches( '.accordion-header' ) ) {
+            handleCurrentItem(e.target);
+        }
+    } );
 
-    acHeader.forEach( (item, index) => {
-        item.addEventListener( 'click', () => handleCurrentItem(item, index ) );
-    });
+    // Noob way adding EL to all, perf degradation
+    // acHeader.forEach( item => {
+    //     item.addEventListener( 'click', () => handleCurrentItem(item ) );
+    // });
 }
 
-function handleCurrentItem( item, index ){
+function handleCurrentItem( header ) {
+    const alreadyOpen = header.getAttribute( 'aria-expanded' ) === 'true';
 
-    const isAlreadyOpen = item.getAttribute( 'aria-expanded' ) === 'true';
-
+    // Close whichever one is open (could be this one, could be a different one)
     if( currentlyOpen ) {
         currentlyOpen.setAttribute( 'aria-expanded', 'false' );
     }
 
-    if( isAlreadyOpen ) {
+    // If the clicked one was already open, we just close it (toggle-off) — leave currentlyOpen as null
+    // If it was closed, open it and remember it
+    if( alreadyOpen ) {
         currentlyOpen = null;
     }else{
-        item.setAttribute( 'aria-expanded', 'true' );
-        currentlyOpen = item;
+        header.setAttribute( 'aria-expanded', 'true' ); 
+        currentlyOpen = header;
     }
 }
 
