@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw JS Slider</title>
+
+    <link rel="stylesheet" href="slider/slider.css">
+</head>
+<body>
+    <div id="root">
+        <h1>Simple JS Slider</h1>
+
+        <div class="slider" aria-roledescription="carousel" aria-label="Image slider">
+
+            <div class="slider-viewport">
+                <ul class="slider-track">
+                    <li class="slide" aria-roledescription="slide" aria-label="1 of 5">
+                        <img src="https://picsum.photos/id/1015/900/500" alt="Mountain river landscape">
+                    </li>
+                    <li class="slide" aria-roledescription="slide" aria-label="2 of 5">
+                        <img src="https://picsum.photos/id/1016/900/500" alt="Rocky mountain range">
+                    </li>
+                    <li class="slide" aria-roledescription="slide" aria-label="3 of 5">
+                        <img src="https://picsum.photos/id/1018/900/500" alt="Forest valley view">
+                    </li>
+                    <li class="slide" aria-roledescription="slide" aria-label="4 of 5">
+                        <img src="https://picsum.photos/id/1019/900/500" alt="Coastal cliffs">
+                    </li>
+                    <li class="slide" aria-roledescription="slide" aria-label="5 of 5">
+                        <img src="https://picsum.photos/id/1021/900/500" alt="Desert dunes">
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="slider-btn slider-btn--prev" aria-label="Previous slide">
+                <span aria-hidden="true">&#10094;</span>
+            </button>
+            <button type="button" class="slider-btn slider-btn--next" aria-label="Next slide">
+                <span aria-hidden="true">&#10095;</span>
+            </button>
+
+            <div class="slider-dots" role="tablist" aria-label="Slide navigation">
+                <button type="button" class="slider-dot active" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+                <button type="button" class="slider-dot" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+                <button type="button" class="slider-dot" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+                <button type="button" class="slider-dot" role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
+                <button type="button" class="slider-dot" role="tab" aria-selected="false" aria-label="Go to slide 5"></button>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="slider/slider.js"></script>
+</body>
+</html>
