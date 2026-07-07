@@ -1,0 +1,9 @@
+[
+    { "id": "overview", "label": "Overview", "heading": "Overview", "content": "High-level summary content goes here." },
+    { "id": "specs", "label": "Specs", "heading": "Specs", "content": "Technical specifications go here." },
+    { "id": "reviews", "label": "Reviews", "heading": "Reviews", "content": "Customer reviews go here." },
+    { "id": "support", "label": "Support", "heading": "Support", "content": "Support and FAQ content goes here." },
+    { "id": "contact", "label": "Contact", "heading": "Contact", "content": "Contact information goes here." },
+    { "id": "pricing", "label": "Pricing", "heading": "Pricing", "content": "Pricing details go here." },
+    { "id": "gallery", "label": "Gallery", "heading": "Gallery", "content": "Image gallery content goes here." }
+]
