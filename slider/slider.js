@@ -23,3 +23,13 @@ function goToPrev() {
 // One function that "paints" the current 
 // state - the render function
 // ------------------------------------
+function render(){
+    track.style.setProperty( '--current', currentIndex );
+
+    dots.forEach( (dot, i ) => {
+        const isActive = i === currentIndex;
+
+        dot.classList.toggle( 'active', isActive );
+        dot.setAttribute( 'aria-selected', isActive );
+    });
+}
