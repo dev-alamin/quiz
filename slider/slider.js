@@ -4,21 +4,39 @@
 let currentIndex = 0;
 
 // DOM reference not to repeat query
-const track = document.querySelector( '.slider-track' );
+const track      = document.querySelector( '.slider-track' );
 const totalSlide = document.querySelectorAll( '.slide' ).length;
-const btnNext = document.querySelector( '.slider-btn--next' );
-const btnPrev = document.querySelector( '.slider-btn--prev' );
+const btnNext    = document.querySelector( '.slider-btn--next' );
+const btnPrev    = document.querySelector( '.slider-btn--prev' );
+const dots       = document.querySelectorAll( '.slider-dot' );
 
-// Go to next slide
-function nextSlide(){
+// Pure function, easy to seperate, reuse, test, maintenance
+function goNext(){
     currentIndex = (currentIndex + 1 ) % totalSlide;
-    render();
-    console.log(currentIndex, totalSlide);
+}
+
+function goPrev(){
+    currentIndex = (currentIndex - 1 + totalSlide ) % totalSlide;
+}
+
+function handleDots(dots){
+    dots.forEach( (dot, index ) => {
+        dot.addEventListener( 'click', () => {
+            currentIndex = index;
+            render();
+        } );
+    } );
 }
 
 // Go to previous slide
 function prevSlide(){
-    currentIndex = (currentIndex - 1 + totalSlide ) % totalSlide;
+    goPrev();
+    render();
+}
+
+// Go next slide
+function nextSlide(){
+    goNext();
     render();
 }
 
@@ -28,8 +46,17 @@ btnPrev.addEventListener( 'click', prevSlide );
 
 function render(){
     track.style.setProperty( '--current', currentIndex );
+
+    dots.forEach( ( dot, index ) => {
+        const isActive = index === currentIndex;
+
+        dot.classList.toggle( 'active', isActive );
+        dot.setAttribute( 'aria-selected', isActive );
+    } );
 }
 
+
+handleDots(dots);
 render();
 
 // Render initialy, anyway
