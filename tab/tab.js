@@ -21,6 +21,7 @@ async function fetchTabData(){
 
     }catch(err){
         console.warn( `Error fetching json data from tabs.json ${err}` );
+        tabList.textContent = 'Failed to load tabs';
     }
 }
 
@@ -31,7 +32,7 @@ function buildTab( tabs ){
         const btn = document.createElement( 'button' );
         btn.classList.add( 'tab' );
         btn.type = 'button';
-        btn.role = 'tab';
+        btn.setAttribute( 'role', 'tab' );
         btn.dataset.tab = tab.id;
         btn.textContent =  tab.label;
 
@@ -63,13 +64,11 @@ function buildTab( tabs ){
 // Render the data, central point
 function render(){
     const btns = document.querySelectorAll( '.tab' );
-
     btns.forEach( ( btn, index ) => {
         btn.classList.toggle( 'active',  btn.dataset.tab === currentTab );
     });
 
     const panels = tabPanels.querySelectorAll( '.tab-panel' );
-    
     panels.forEach( ( tab, index ) => {
         tab.hidden = tab.id !== `panel-${currentTab}`;
     });
@@ -87,6 +86,7 @@ window.addEventListener( 'hashchange', syncFromHash );
 // Bootstrap the app, init the srcipt
 (async function init(){
     await fetchTabData();
+    if( tabs.length === 0 ) return; // stops as no data there to pull
     buildTab(tabs);
     syncFromHash();
 })();
