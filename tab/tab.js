@@ -32,6 +32,7 @@ function buildTab( tabs ){
         btn.classList.add( 'tab' );
         btn.type = 'button';
         btn.role = 'tab';
+        btn.dataset.tab = tab.id;
         btn.textContent =  tab.label;
 
         tabList.appendChild(btn);
@@ -59,9 +60,33 @@ function buildTab( tabs ){
     });
 }
 
+// Render the data, central point
+function render(){
+    const btns = document.querySelectorAll( '.tab' );
 
+    btns.forEach( ( btn, index ) => {
+        btn.classList.toggle( 'active',  btn.dataset.tab === currentTab );
+    });
+
+    const panels = tabPanels.querySelectorAll( '.tab-panel' );
+    
+    panels.forEach( ( tab, index ) => {
+        tab.hidden = tab.id !== `panel-${currentTab}`;
+    });
+}
+
+// Sync From Hash
+function syncFromHash() {
+    const hash = location.hash.slice(1);
+    const exist = tabs.some( (tab) => tab.id === hash );
+    currentTab = exist ? hash : tabs[0].id;
+    render();
+}
+window.addEventListener( 'hashchange', syncFromHash );
+
+// Bootstrap the app, init the srcipt
 (async function init(){
     await fetchTabData();
     buildTab(tabs);
-    // console.log(tabs);
+    syncFromHash();
 })();
